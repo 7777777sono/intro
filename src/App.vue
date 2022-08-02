@@ -12,7 +12,7 @@
     <h1 class="title">my-portfolio</h1>
     <nav>
       <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
+      <router-link to="/favorite">Favorite</router-link>
     </nav>
   </header>
   <div v-bind:style="space" class="space"></div>
