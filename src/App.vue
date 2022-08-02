@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- リセットcss -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -14,7 +15,7 @@
       <router-link to="/about">About</router-link>
     </nav>
   </header>
-  <div v-bind:style="space"></div>
+  <div v-bind:style="space" class="space"></div>
   <router-view />
 </template>
 
@@ -30,9 +31,14 @@
   width: 100%;
 }
 
+.space {
+  background-color: black;
+}
+
 .title {
   color: white;
   padding: 10px;
+  font-family: "Monotype Corsiva";
 }
 
 nav a {
@@ -41,6 +47,7 @@ nav a {
   font-size: 20px;
   padding-right: 15px;
   text-decoration: none;
+  font-family: "Monotype Corsiva";
 }
 
 nav a.router-link-exact-active {

@@ -12,15 +12,33 @@
     <div class="detail-zone">
       <div class="university-zone">
         <h3 class="sub-title">大学</h3>
-        <h4>福岡大学</h4>
+        <a
+          href="https://www.fukuoka-u.ac.jp/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="factor"
+          >福岡大学</a
+        >
       </div>
       <div class="course-zone">
         <h3 class="sub-title">学部・学科</h3>
-        <h4>工学部 電子情報工学科</h4>
+        <a
+          href="https://w3.tl.fukuoka-u.ac.jp/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="factor"
+          >工学部 電子情報工学科</a
+        >
       </div>
       <div class="sns-zone">
         <h3 class="sub-title">インスタグラム</h3>
-        <h4>@sonoda7777777</h4>
+        <a
+          href="https://z-p15.www.instagram.com/sonoda7777777/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="factor"
+          >@sonoda7777777</a
+        >
       </div>
     </div>
   </div>
@@ -37,6 +55,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  font-family: "HG正楷書体-PRO";
 }
 
 .name-zone {
@@ -55,10 +74,22 @@
   padding-top: 30px;
   display: flex;
   justify-content: space-around;
+  font-family: "HG正楷書体-PRO";
 }
 
 .sub-title {
   padding-bottom: 20px;
+  font-size: 33px;
+}
+
+.factor {
+  color: black;
+  font-size: 23px;
+  text-decoration: none;
+}
+
+.factor:hover {
+  color: rgb(17, 0, 255);
 }
 </style>
 
