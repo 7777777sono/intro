@@ -13,6 +13,7 @@
     <nav>
       <router-link to="/">Home</router-link>
       <router-link to="/favorite">Favorite</router-link>
+      <router-link to="/create">Programming</router-link>
     </nav>
   </header>
   <div v-bind:style="space" class="space"></div>
