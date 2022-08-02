@@ -18,13 +18,27 @@
     <h3 class="manga-image-favorite-zone-title">
       好きな漫画の自分のお気に入りのシーン
     </h3>
-    <div
-      v-for="(scene, index) in scenes"
-      v-bind:key="index"
-      v-bind:value="scenes"
+    <carousel
+      ref="carousel"
+      :per-page="1"
+      :loop="true"
+      :mouseDrag="true"
+      :touchDrag="true"
+      :pagination-padding="5"
+      :speed="1000"
+      :autoplay="5000"
     >
-      <img v-bind:src="scene" class="slick-img" />
-    </div>
+      <slide
+        v-for="(scene, index) in scenes"
+        v-bind:key="index"
+        v-bind:value="scenes"
+      >
+        <img v-bind:src="scene" class="slick-img" />
+      </slide>
+      <template #addons>
+        <pagination />
+      </template>
+    </carousel>
   </div>
 </template>
 
@@ -32,31 +46,67 @@
 .manga-zone-title {
   font-size: 30px;
   padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: "Estrangelo Edessa";
+}
+
+.manga-image-favorite-zone {
+  padding-bottom: 50px;
 }
 
 .favorite-manga-zone {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-flow: row wrap;
+}
+
+.manga-image-favorite-zone-title {
+  font-size: 30px;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: "Estrangelo Edessa";
 }
 
 .manga-list {
   padding-top: 5px;
-  padding-left: 10px;
+  padding-left: 50px;
   text-decoration: none;
-  color: black;
+  color: white;
+  font-family: "Estrangelo Edessa";
   font-size: 20px;
   width: fit-content;
+  /* 1列を4つにするための25% */
+  width: 25%;
 }
 
 .manga-list:hover {
-  color: #3650d3;
+  color: #e64d0b;
+}
+
+.slick-img {
+  height: 270px;
+  width: 45%;
+  display: flex;
+  margin: 0 auto;
 }
 </style>
 
 <script>
+import "vue3-carousel/dist/carousel.css"
+import { Carousel, Slide, Pagination } from "vue3-carousel"
+
 export default {
   name: "FavoriteView",
+  components: {
+    Carousel,
+    Slide,
+    Pagination,
+  },
   data() {
     return {
       mangas: [
@@ -112,7 +162,6 @@ export default {
         "https://s3-ap-northeast-1.amazonaws.com/cdn.bibi-star.jp/production/imgs/images/000/587/296/original.jpg?1608533541",
         "https://cdn-ak.f.st-hatena.com/images/fotolife/d/dokusyo_geek_ki/20181128/20181128022834.png",
         "https://cdn-ak.f.st-hatena.com/images/fotolife/d/dokusyo_geek_ki/20181203/20181203154632.png",
-        "https://manga-legend.com/wp-content/uploads/2018/08/%E3%83%87%E3%82%AF%E3%80%80%E3%81%8B%E3%81%A3%E3%81%93%E3%81%84%E3%81%84%E3%82%B7%E3%83%BC%E3%83%B3-3-198x300.png",
         "https://manga-netabare-kanso.com/wp-content/uploads/2020/05/ca9bdb64-e1576884259455.jpg",
         "https://renote.jp/files/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaEgzIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f046414a51a690aa0d184569d9ecc1add7963488/8.jpg",
         "https://renote.jp/files/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaHIzIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8de349bb8bb8c037e77836fc1d7cfbdda6da176d/21900085154cd16fd89.jpg",
