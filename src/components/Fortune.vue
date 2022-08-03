@@ -5,7 +5,9 @@
         あなたがどのような感情であるのかを占います
       </h2>
       <h1 class="fate">{{ result }}</h1>
-      <img v-bind:src="url" class="fate" />
+      <div class="fate-img-zone">
+        <img v-bind:src="url" class="fate-img" />
+      </div>
     </div>
     <div class="btn-list">
       <button v-on:click="xorResult(0)" class="btn">🧐</button>
@@ -19,6 +21,34 @@
     </div>
   </div>
 </template>
+
+<style>
+.divination-title,
+.fate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  font-family: "ＭＳ 明朝";
+}
+
+.fate-img-zone,
+.btn-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-list {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.fate-img {
+  width: 50%;
+  height: 400px;
+}
+</style>
 
 <script>
 export default {
