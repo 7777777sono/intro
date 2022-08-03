@@ -95,7 +95,7 @@ export default {
   },
   methods: {
     xorResult(divination) {
-      let ramdom = Math.floor(Math.random() * 7) //0~7の乱数を発生させる
+      let ramdom = Math.floor(Math.random() * 7) // 0~7の乱数を発生させる
       // クリックしたボタンの値とその乱数の排他的論理和によって要素数を指定し、占いの結果とする。
       this.url = this.fortuneResult[ramdom ^ divination].url
       this.result = this.fortuneResult[ramdom ^ divination].result
