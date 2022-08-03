@@ -28,35 +28,35 @@ export default {
       fortuneResult: [
         {
           result: "喜び",
-          url: "./prog/Vue/portfolio/src/assets/image/happy.webp",
+          url: require("@/assets/happy.webp"),
         },
         {
           result: "怒り",
-          url: "./prog/Vue/portfolio/src/assets/image/angry.jpg",
+          url: require("@/assets/angry.jpg"),
         },
         {
           result: "悲しみ",
-          url: "./prog/Vue/portfolio/src/assets/image/sad.webp",
+          url: require("@/assets/sad.webp"),
         },
         {
           result: "疲れ",
-          url: "./prog/Vue/portfolio/src/assets/image/image/tired.jpg",
+          url: require("@/assets/tired.jpg"),
         },
         {
           result: "うんざり",
-          url: "./prog/Vue/portfolio/src/assets/image/image/boring.jpg",
+          url: require("@/assets/boring.jpg"),
         },
         {
           result: "驚き",
-          url: "./prog/Vue/portfolio/src/assets/image/image/surprise.webp",
+          url: require("@/assets/surprise.webp"),
         },
         {
           result: "幸福",
-          url: "./prog/Vue/portfolio/src/assets/image/image/happiness.webp",
+          url: require("@/assets/happiness.webp"),
         },
         {
           result: "信頼",
-          url: "./prog/Vue/portfolio/src/assets/image/image/trust.webp",
+          url: require("@/assets/trust.webp"),
         },
       ],
       result: "", // 占い結果を格納する変数
@@ -66,7 +66,7 @@ export default {
   methods: {
     xorResult(divination) {
       let ramdom = Math.floor(Math.random() * 7) //0~7の乱数を発生させる
-      //クリックしたボタンの値とその乱数の排他的論理和によって要素数を指定し、占いの結果とする。
+      // クリックしたボタンの値とその乱数の排他的論理和によって要素数を指定し、占いの結果とする。
       this.url = this.fortuneResult[ramdom ^ divination].url
       this.result = this.fortuneResult[ramdom ^ divination].result
     },
