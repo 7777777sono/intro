@@ -80,21 +80,25 @@
 <style>
 .palette-title {
   margin: 0; /* デフォルトCSS打ち消し */
-  position: relative; /* 位置調整 */
-  margin-bottom: 10%; /* 周りの余白指定 */
-  border-bottom: solid 4px rgba(76, 175, 80, 0.6); /* 線指定 */
-  border-radius: 0px 0px 160px 180px/0px 0px 20px 4px; /* 角丸指定 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
+
 .app {
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: center;
 }
+
 .palette {
   width: 255px;
   height: 255px;
 }
+
 .red {
   font-size: 1.5em;
   text-align: center;
@@ -111,6 +115,7 @@
   );
   background-clip: text;
 }
+
 .green {
   font-size: 1.5em;
   text-align: center;
@@ -127,6 +132,7 @@
   );
   background-clip: text;
 }
+
 .blue {
   font-size: 1.5em;
   text-align: center;
@@ -143,6 +149,7 @@
   );
   background-clip: text;
 }
+
 .opacity {
   font-size: 1.5em;
   text-align: center;
@@ -151,6 +158,7 @@
   color: #fff;
   text-shadow: 0 0 0.2em rgba(0, 0, 0, 1);
 }
+
 .color-decision {
   margin-top: 1%;
   position: relative;
@@ -165,7 +173,9 @@
   color: rgb(6, 241, 131);
   transition: 0.4s;
   border: none;
+  z-index: -1;
 }
+
 .color-decision:before {
   position: absolute;
   content: "";
@@ -176,9 +186,9 @@
   border: none;
   border-left: solid 21px white;
   border-bottom: solid 41px transparent;
-  z-index: 1;
   transition: 0.4s;
 }
+
 .color-decision:after {
   position: absolute;
   content: "";
@@ -189,23 +199,26 @@
   border: none;
   border-left: solid 21px transparent;
   border-bottom: solid 41px white;
-  z-index: 1;
   transition: 0.4s;
 }
+
 .color-decision:hover:before,
 .color-decision:hover:after {
   border-left-width: 25px;
 }
+
 .mini-palette {
   min-width: 60px;
   height: 60px;
 }
+
 .colors-container {
   display: flex;
   flex-wrap: wrap;
   width: 300px;
   padding-top: 8px;
 }
+
 .draw-title {
   text-align: center;
   font-weight: bold;
@@ -223,12 +236,14 @@
   /* background-clip は要素の背景を境界ボックス、パディングボックス、コンテンツボックスのどれまで拡張するかを設定する */
   background-clip: text;
 }
+
 .canvas-area {
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: center;
 }
+
 #myCanvas {
   border: 1px solid black;
   height: 255px;
@@ -236,13 +251,16 @@
   /* 色をcanvas内に反映させるため */
   opacity: 0.9;
 }
+
 .current-draw-mode {
   font-size: 1.5em;
   text-align: center;
   line-height: 0.95em;
   font-weight: bold;
   margin-top: 1%;
+  margin-bottom: 20px;
 }
+
 .tool-area {
   margin-top: 1%;
   display: flex;
@@ -250,6 +268,7 @@
   flex-direction: row;
   justify-content: center;
 }
+
 .clear-button {
   margin: 3px;
   display: inline-block;
@@ -260,9 +279,11 @@
   background-image: linear-gradient(45deg, #aae5e9 0%, #46d6f0 100%);
   transition: 0.4s;
 }
+
 .clear-button:hover {
   background-image: linear-gradient(45deg, #aae5e9 0%, #0ae9f1 100%);
 }
+
 .eraser-button {
   margin: 3px;
   display: inline-block;
@@ -273,9 +294,11 @@
   background-image: linear-gradient(45deg, #ffc107 0%, #f7926a 100%);
   transition: 0.4s;
 }
+
 .eraser-button:hover {
   background-image: linear-gradient(45deg, #ffc107 0%, #f54606 100%);
 }
+
 .pen-button {
   margin: 3px;
   display: inline-block;
@@ -286,9 +309,11 @@
   background-image: linear-gradient(45deg, #abe7ba 0%, #4df076 100%);
   transition: 0.4s;
 }
+
 .pen-button:hover {
   background-image: linear-gradient(45deg, #abe7ba 0%, #0bf52a 100%);
 }
+
 .pen-width {
   font-size: 1.5em;
   text-align: center;
@@ -296,6 +321,7 @@
   font-weight: bold;
   margin-top: 1%;
 }
+
 .click-please {
   font-size: 0.5rem;
 }
