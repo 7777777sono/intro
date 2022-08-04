@@ -55,6 +55,7 @@
 
 .manga-image-favorite-zone {
   padding-bottom: 50px;
+  z-index: -1;
 }
 
 .favorite-manga-zone {

@@ -19,6 +19,18 @@
   </header>
   <div v-bind:style="space" class="space"></div>
   <router-view />
+  <div class="opinion-zone">
+    <div class="opinion-title-zone">
+      <h2 class="opinion-title">目安箱</h2>
+      <h4 class="opinion-sub-title">
+        ※改良点などがあったら以下の入力フォームから入力して下さい
+      </h4>
+    </div>
+    <div class="opinion-input-zone">
+      <textarea v-model="opinion" class="input-form"></textarea>
+      <button v-on:click="opinionSubmit" class="submit-btn">送信</button>
+    </div>
+  </div>
 </template>
 
 <style>
@@ -31,6 +43,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 100;
 }
 
 .space {
@@ -55,15 +68,66 @@ nav a {
 nav a.router-link-exact-active {
   color: #36d0d3;
 }
+
+.opinion-zone {
+  background-image: url("C:\prog\Vue\portfolio\src\assets\clouds-3400094__480.jpg");
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.opinion-title-zone,
+.opinion-input-zone {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.opinion-title,
+.opinion-sub-title,
+.submit-btn {
+  font-family: "HG行書体";
+}
+
+.opinion-title,
+.opinion-sub-title {
+  color: azure;
+}
+
+.input-form {
+  margin-top: 30px;
+  width: 50%;
+  height: 200px;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
 </style>
 
 <script>
+import { collection, addDoc } from "firebase/firestore"
+import { db } from "@/firebase.js"
+
 export default {
   data() {
     return {
       height: 0,
       space: {},
+      opinion: "",
     }
+  },
+  methods: {
+    async opinionSubmit() {
+      await addDoc(collection(db, "opinion"), {
+        opinion: this.opinion,
+      })
+      this.opinion = ""
+      alert("ご協力ありがとうございます")
+    },
   },
   mounted: function () {
     const header = this.$refs.header
