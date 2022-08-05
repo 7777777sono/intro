@@ -28,7 +28,13 @@
     </div>
     <div class="opinion-input-zone">
       <textarea v-model="opinion" class="input-form"></textarea>
-      <button v-on:click="opinionSubmit" class="submit-btn">送信</button>
+      <button
+        v-on:click="opinionSubmit"
+        v-bind:disabled="opinion.length === 0"
+        class="submit-btn"
+      >
+        送信
+      </button>
     </div>
   </div>
 </template>

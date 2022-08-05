@@ -6,7 +6,7 @@
         <h3>Sonoda Kaito</h3>
       </div>
       <div class="age-zone">
-        <h3>20歳</h3>
+        <h3>{{ age }}歳</h3>
       </div>
     </div>
     <div class="detail-zone">
@@ -101,6 +101,40 @@ export default {
   name: "HomeView",
   components: {
     // HelloWorld,
+  },
+  data() {
+    return {
+      birthday: {
+        year: 2002,
+        month: 2,
+        date: 19,
+      },
+      age: 0, // 年齢
+    }
+  },
+  methods: {
+    getAge() {
+      //今日
+      let today = new Date()
+
+      //今年の誕生日
+      let thisYearsBirthday = new Date(
+        today.getFullYear(),
+        this.birthday.month - 1,
+        this.birthday.date
+      )
+
+      //年齢
+      this.age = today.getFullYear() - this.birthday.year
+
+      if (today < thisYearsBirthday) {
+        //今年まだ誕生日が来ていない
+        this.age--
+      }
+    },
+  },
+  mounted: function () {
+    this.getAge()
   },
 }
 </script>
