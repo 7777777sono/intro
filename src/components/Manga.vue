@@ -32,8 +32,10 @@
         v-for="(scene, index) in scenes"
         v-bind:key="index"
         v-bind:value="scenes"
+        class="slide-zone"
       >
-        <img v-bind:src="scene" class="slick-img" />
+        <img v-bind:src="scene.img" class="slick-img" />
+        <div class="slick-reference">引用: {{ scene.reference }}より</div>
       </slide>
       <template #addons>
         <pagination />
@@ -43,8 +45,133 @@
 </template>
 
 <style>
+@media screen and (max-width: 480px) {
+  .manga-zone-title {
+    font-size: 30px;
+  }
+
+  .favorite-manga-zone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .manga-list {
+    padding-top: 10px;
+    font-size: 20px;
+  }
+
+  .manga-image-favorite-zone-title {
+    font-size: 30px;
+    padding: 30px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 800px) {
+  .manga-zone-title {
+    font-size: 30px;
+  }
+
+  .favorite-manga-zone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .manga-list {
+    padding-top: 10px;
+    font-size: 20px;
+  }
+
+  .manga-image-favorite-zone-title {
+    font-size: 30px;
+    padding: 30px;
+  }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1080px) {
+  .manga-zone-title {
+    font-size: 30px;
+  }
+
+  .favorite-manga-zone {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .manga-list {
+    padding-top: 15px;
+    padding-left: 50px;
+    font-size: 20px;
+    width: fit-content;
+    /* 1列を3つにするための33% */
+    width: 33%;
+  }
+
+  .manga-image-favorite-zone-title {
+    font-size: 30px;
+    padding: 30px;
+  }
+}
+
+@media screen and (min-width: 1081px) and (max-width: 1500px) {
+  .manga-zone-title {
+    font-size: 30px;
+  }
+
+  .favorite-manga-zone {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .manga-list {
+    padding-top: 5px;
+    padding-left: 50px;
+    font-size: 20px;
+    width: fit-content;
+    /* 1列を4つにするための25% */
+    width: 25%;
+  }
+
+  .manga-image-favorite-zone-title {
+    font-size: 30px;
+    padding: 30px;
+  }
+}
+
+@media screen and (min-width: 1501px) {
+  .manga-zone-title {
+    font-size: 40px;
+  }
+
+  .favorite-manga-zone {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .manga-list {
+    padding-top: 5px;
+    padding-left: 50px;
+    font-size: 25px;
+    width: fit-content;
+    /* 1列を4つにするための25% */
+    width: 25%;
+  }
+
+  .manga-image-favorite-zone-title {
+    font-size: 40px;
+    padding: 30px;
+  }
+
+  .slick-reference {
+    padding-top: 7px;
+    font-size: 20px;
+  }
+}
+
 .manga-zone-title {
-  font-size: 30px;
   padding: 30px;
   display: flex;
   justify-content: center;
@@ -58,35 +185,27 @@
   z-index: -1;
 }
 
-.favorite-manga-zone {
-  display: flex;
-  flex-flow: row wrap;
-}
-
 .manga-image-favorite-zone-title {
-  font-size: 30px;
-  padding: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   color: white;
   font-family: "Estrangelo Edessa";
 }
 
 .manga-list {
-  padding-top: 5px;
-  padding-left: 50px;
-  text-decoration: none;
   color: white;
   font-family: "Estrangelo Edessa";
-  font-size: 20px;
-  width: fit-content;
-  /* 1列を4つにするための25% */
-  width: 25%;
 }
 
 .manga-list:hover {
   color: #e64d0b;
+}
+
+.slide-zone {
+  display: flex;
+  flex-direction: column;
 }
 
 .slick-img {
@@ -94,6 +213,11 @@
   width: 45%;
   display: flex;
   margin: 0 auto;
+}
+
+.slick-reference {
+  color: white;
+  margin-top: 10px;
 }
 </style>
 
@@ -150,26 +274,82 @@ export default {
         { title: "ダイヤのA", url: "https://diaace.com/" },
       ],
       scenes: [
-        "https://livedoor.blogimg.jp/anigei-mangabox/imgs/4/d/4dd6bd91-s.jpg",
-        "https://manga-comic-netabare.com/wp-content/uploads/2020/08/CnadM5kWAAAPjjy-768x689.jpg",
-        "https://newsinfomation.net/wp-content/uploads/2021/07/8-11.jpg",
-        "https://blogimg.goo.ne.jp/user_image/6d/da/4375040fc5a40054eb69fea787ed1359.jpg?1597877727",
-        "https://s3-ap-northeast-1.amazonaws.com/cdn.bibi-star.jp/production/imgs/images/000/532/880/original.png?1595133850",
-        "https://manga-netabare-kanso.com/wp-content/uploads/2018/04/%E3%83%8F%E3%82%A4%E3%82%AD%E3%83%A5%E3%83%BC298%E8%A9%B1%E6%9C%88%E5%B3%B6%EF%BC%88%E3%83%84%E3%83%83%E3%82%AD%E3%83%BC%EF%BC%89.png",
-        "https://s3-ap-northeast-1.amazonaws.com/cdn.bibi-star.jp/production/imgs/images/000/631/121/original.?1618474647",
-        "https://manga-comic-netabare.com/wp-content/uploads/2020/01/20171006093355.jpg",
-        "https://1.bp.blogspot.com/-8XKF_u8Q0mE/Xs5gJlBo_UI/AAAAAAAAFGk/0h5sD9APGXgsTDRZuI7uemQARZqW_Ii6wCPcBGAYYCw/s0/kokusen-min.jpg",
-        "https://manga-netabare-kanso.com/wp-content/uploads/2021/01/drstone_senku_02-768x876.jpg",
-        "https://s3-ap-northeast-1.amazonaws.com/cdn.bibi-star.jp/production/imgs/images/000/587/296/original.jpg?1608533541",
-        "https://cdn-ak.f.st-hatena.com/images/fotolife/d/dokusyo_geek_ki/20181128/20181128022834.png",
-        "https://cdn-ak.f.st-hatena.com/images/fotolife/d/dokusyo_geek_ki/20181203/20181203154632.png",
-        "https://manga-netabare-kanso.com/wp-content/uploads/2020/05/ca9bdb64-e1576884259455.jpg",
-        "https://renote.jp/files/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaEgzIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f046414a51a690aa0d184569d9ecc1add7963488/8.jpg",
-        "https://renote.jp/files/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaHIzIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8de349bb8bb8c037e77836fc1d7cfbdda6da176d/21900085154cd16fd89.jpg",
-        "https://assets.st-note.com/production/uploads/images/9796525/picture_pc_656a28370f766dfb922a236b4129a253.jpg?width=800",
-        "https://animemiru.jp/wp-content/uploads/2018/08/naruto-gai06.jpg",
-        "https://www.cmoa.jp/cc/template/common/titleinfo/quotation/data/39221/images/39221_04.png",
-        "https://www.cmoa.jp/cc/template/common/titleinfo/quotation/data/39221/images/39221_02.png",
+        {
+          img: "https://livedoor.blogimg.jp/anigei-mangabox/imgs/4/d/4dd6bd91-s.jpg",
+          reference: "ワールドトリガー22巻",
+        },
+        {
+          img: "https://manga-comic-netabare.com/wp-content/uploads/2020/08/CnadM5kWAAAPjjy-768x689.jpg",
+          reference: "ワールドトリガー9巻",
+        },
+        {
+          img: "https://newsinfomation.net/wp-content/uploads/2021/07/8-11.jpg",
+          reference: "ワールドトリガー12巻",
+        },
+        {
+          img: require("@/assets/スクリーンショット-2021-02-20-21.42.23-1025x720.png"),
+          reference: "ワールドトリガー8巻",
+        },
+        {
+          img: "https://blogimg.goo.ne.jp/user_image/6d/da/4375040fc5a40054eb69fea787ed1359.jpg?1597877727",
+          reference: "ハイキュー！！17巻",
+        },
+        {
+          img: "https://s3-ap-northeast-1.amazonaws.com/cdn.bibi-star.jp/production/imgs/images/000/532/880/original.png?1595133850",
+          reference: "ハイキュー！！16巻",
+        },
+        {
+          img: "https://manga-netabare-kanso.com/wp-content/uploads/2018/04/%E3%83%8F%E3%82%A4%E3%82%AD%E3%83%A5%E3%83%BC298%E8%A9%B1%E6%9C%88%E5%B3%B6%EF%BC%88%E3%83%84%E3%83%83%E3%82%AD%E3%83%BC%EF%BC%89.png",
+          reference: "ハイキュー！！34巻",
+        },
+        {
+          img: "https://s3-ap-northeast-1.amazonaws.com/cdn.bibi-star.jp/production/imgs/images/000/631/121/original.?1618474647",
+          reference: "ブラッククローバー1巻",
+        },
+        {
+          img: "https://manga-comic-netabare.com/wp-content/uploads/2020/01/20171006093355.jpg",
+          reference: "ブラッククローバー6巻",
+        },
+        {
+          img: "https://1.bp.blogspot.com/-8XKF_u8Q0mE/Xs5gJlBo_UI/AAAAAAAAFGk/0h5sD9APGXgsTDRZuI7uemQARZqW_Ii6wCPcBGAYYCw/s0/kokusen-min.jpg",
+          reference: "呪術廻戦7巻",
+        },
+        {
+          img: "https://manga-netabare-kanso.com/wp-content/uploads/2021/01/drstone_senku_02-768x876.jpg",
+          reference: "Dr.STONE1巻",
+        },
+        {
+          img: "https://s3-ap-northeast-1.amazonaws.com/cdn.bibi-star.jp/production/imgs/images/000/587/296/original.jpg?1608533541",
+          reference: "Dr.STONE9巻",
+        },
+        {
+          img: "https://cdn-ak.f.st-hatena.com/images/fotolife/d/dokusyo_geek_ki/20181128/20181128022834.png",
+          reference: "ONE PIECE50巻",
+        },
+        {
+          img: "https://cdn-ak.f.st-hatena.com/images/fotolife/d/dokusyo_geek_ki/20181203/20181203154632.png",
+          reference: "ONE PIECE56巻",
+        },
+        {
+          img: "https://manga-netabare-kanso.com/wp-content/uploads/2020/05/ca9bdb64-e1576884259455.jpg",
+          reference: "僕のヒーローアカデミア26巻",
+        },
+        {
+          img: "https://renote.jp/files/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaEgzIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f046414a51a690aa0d184569d9ecc1add7963488/8.jpg",
+          reference: "暗殺教室8巻",
+        },
+        {
+          img: "https://assets.st-note.com/production/uploads/images/9796525/picture_pc_656a28370f766dfb922a236b4129a253.jpg?width=800",
+          reference: "NARUTO-ナルト-27巻",
+        },
+        {
+          img: "https://animemiru.jp/wp-content/uploads/2018/08/naruto-gai06.jpg",
+          reference: "NARUTO-ナルト-67巻",
+        },
+        {
+          img: "https://www.cmoa.jp/cc/template/common/titleinfo/quotation/data/39221/images/39221_04.png",
+          reference: "ダイヤのA2巻",
+        },
       ],
     }
   },

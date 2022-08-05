@@ -32,6 +32,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   padding-top: 30px;
   font-family: "ＭＳ 明朝";
 }

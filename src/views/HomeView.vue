@@ -45,6 +45,182 @@
 </template>
 
 <style>
+@media screen and (max-width: 480px) {
+  .my-zone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .name-zone {
+    padding-top: 30px;
+    padding-left: 30px;
+  }
+
+  .name-zone h2,
+  .name-zone h3,
+  .age-zone h3 {
+    font-size: 30px;
+  }
+
+  .age-zone {
+    padding-left: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .detail-zone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "HG正楷書体-PRO";
+  }
+
+  .sub-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    font-size: 30px;
+  }
+
+  .factor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 800px) {
+  .my-zone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .name-zone {
+    padding-top: 30px;
+    padding-left: 30px;
+  }
+
+  .age-zone {
+    padding-left: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .detail-zone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "HG正楷書体-PRO";
+  }
+
+  .sub-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    font-size: 30px;
+  }
+
+  .factor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1500px) {
+  .my-zone {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .name-zone {
+    padding-top: 30px;
+    padding-left: 30px;
+  }
+
+  .age-zone {
+    padding-left: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .detail-zone {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    font-family: "HG正楷書体-PRO";
+  }
+
+  .sub-title {
+    padding-bottom: 20px;
+    font-size: 33px;
+  }
+
+  .factor {
+    color: black;
+    font-size: 23px;
+  }
+}
+
+@media screen and (min-width: 1501px) {
+  .my-zone {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .name-zone h2,
+  .name-zone h3,
+  .age-zone h3 {
+    font-size: 50px;
+  }
+
+  .name-zone {
+    padding-top: 30px;
+    padding-left: 30px;
+  }
+
+  .age-zone {
+    padding-left: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .detail-zone {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    font-family: "HG正楷書体-PRO";
+  }
+
+  .sub-title {
+    padding-bottom: 20px;
+    font-size: 40px;
+  }
+
+  .factor {
+    color: black;
+    font-size: 30px;
+  }
+}
+
 .home {
   background-image: url("C:\prog\vue\portfolio\src\assets\frank-mckenna-OD9EOzfSOh0-unsplash.jpg");
   background-size: cover;
@@ -52,40 +228,7 @@
 }
 
 .my-zone {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
   font-family: "HG正楷書体-PRO";
-}
-
-.name-zone {
-  padding-top: 30px;
-  padding-left: 30px;
-}
-
-.age-zone {
-  padding-left: 30px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.detail-zone {
-  padding-top: 30px;
-  display: flex;
-  justify-content: space-around;
-  font-family: "HG正楷書体-PRO";
-}
-
-.sub-title {
-  padding-bottom: 20px;
-  font-size: 33px;
-}
-
-.factor {
-  color: black;
-  font-size: 23px;
-  text-decoration: none;
 }
 
 .factor:hover {

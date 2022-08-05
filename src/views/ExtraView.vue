@@ -9,6 +9,21 @@
 </template>
 
 <style>
+@media screen and (max-width: 480px) {
+}
+
+@media screen and (min-width: 481px) and (max-width: 800px) {
+}
+
+@media screen and (min-width: 801px) and (max-width: 1080px) {
+}
+
+@media screen and (min-width: 1081px) and (max-width: 1500px) {
+}
+
+@media screen and (min-width: 1501px) {
+}
+
 .extra-title {
   display: flex;
   justify-content: center;

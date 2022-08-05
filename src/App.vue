@@ -7,10 +7,31 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </div>
   <header class="header" ref="header">
     <h1 class="title">my-portfolio</h1>
-    <nav>
+    <div v-if="width < 801">
+      <button type="button" class="menu-btn" v-on:click="open = !open">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+      <div class="menu" v-bind:class="{ 'is-active': open }">
+        <nav>
+          <router-link to="/" v-on:click="open = !open">Home</router-link>
+          <router-link to="/favorite" v-on:click="open = !open"
+            >Favorite</router-link
+          >
+          <router-link to="/create" v-on:click="open = !open"
+            >Programming</router-link
+          >
+          <router-link to="/extra" v-on:click="open = !open">Extra</router-link>
+        </nav>
+      </div>
+    </div>
+    <nav v-else>
       <router-link to="/">Home</router-link>
       <router-link to="/favorite">Favorite</router-link>
       <router-link to="/create">Programming</router-link>
@@ -69,6 +90,75 @@
 </template>
 
 <style>
+@media screen and (max-width: 800px) {
+  .menu-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 3;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #333;
+    color: #fff;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("C:\prog\Vue\portfolio\src\assets\526782_m.jpg");
+  }
+
+  nav a {
+    width: 100%;
+    height: auto;
+    padding: 0.5em 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Monotype Corsiva";
+  }
+
+  .menu {
+    transform: translateX(100vw);
+    transition: all 0.3s linear;
+  }
+  /* アニメーション後のメニューの状態 */
+  .menu.is-active {
+    transform: translateX(0);
+  }
+}
+
+@media screen and (min-width: 801px) {
+  nav a {
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    padding-right: 15px;
+    text-decoration: none;
+    font-family: "Monotype Corsiva";
+  }
+
+  nav a.router-link-exact-active {
+    color: #36d0d3;
+  }
+}
+
 .header {
   background-color: black;
   display: flex;
@@ -91,19 +181,6 @@
   font-family: "Monotype Corsiva";
 }
 
-nav a {
-  font-weight: bold;
-  color: white;
-  font-size: 20px;
-  padding-right: 15px;
-  text-decoration: none;
-  font-family: "Monotype Corsiva";
-}
-
-nav a.router-link-exact-active {
-  color: #36d0d3;
-}
-
 .opinion-zone {
   background-image: url("C:\prog\Vue\portfolio\src\assets\clouds-3400094__480.jpg");
   background-size: cover;
@@ -118,6 +195,7 @@ nav a.router-link-exact-active {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   flex-direction: column;
 }
 
@@ -179,6 +257,8 @@ export default {
   data() {
     return {
       height: 0,
+      width: 0,
+      open: false,
       space: {},
       opinion: "",
       opinionCollection: [], // 皆の意見の集まりそれに属するidを格納する配列
@@ -216,6 +296,7 @@ export default {
     },
   },
   mounted: function () {
+    this.width = window.innerWidth
     const header = this.$refs.header
     this.height = header.clientHeight // ヘッダの高さを得る。
     this.space["padding-top"] = this.height + "px" // ヘッダ分の高さを空ける
