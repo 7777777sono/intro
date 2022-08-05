@@ -35,6 +35,35 @@
       >
         送信
       </button>
+      <div class="master-zone">
+        <div v-if="masterMode" class="master-mode-zone">
+          <div
+            v-for="(comment, index) in opinionCollection"
+            v-bind:key="index"
+            v-bind:value="opinionCollection"
+            class="opinion-collection"
+          >
+            {{ comment.opinion.opinion }}
+            <div class="remove-btn-zone">
+              <button v-on:click="opinionRemove(index)" class="remove-btn">
+                削除
+              </button>
+            </div>
+          </div>
+          <button v-on:click="masterModeRelease" class="check-btn">解除</button>
+        </div>
+        <div v-else class="user-mode-zone">
+          <h4 class="user-mode-zone-title">
+            意見を閲覧するためのパスワードを入力してください
+          </h4>
+          <input
+            type="password"
+            v-model="masterCode"
+            placeholder="masterCode"
+          />
+          <button v-on:click="getOpinion" class="check-btn">確認</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -82,7 +111,9 @@ nav a.router-link-exact-active {
 }
 
 .opinion-title-zone,
-.opinion-input-zone {
+.opinion-input-zone,
+.user-mode-zone,
+.master-mode-zone {
   padding-top: 30px;
   display: flex;
   justify-content: center;
@@ -92,13 +123,38 @@ nav a.router-link-exact-active {
 
 .opinion-title,
 .opinion-sub-title,
-.submit-btn {
+.submit-btn,
+.user-mode-zone-title,
+.check-btn,
+.remove-btn {
   font-family: "HG行書体";
 }
 
 .opinion-title,
-.opinion-sub-title {
+.opinion-sub-title,
+.user-mode-zone-title,
+.opinion-collection {
   color: azure;
+}
+
+.remove-btn-zone {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.remove-btn {
+  color: rgb(225, 81, 74);
+  margin-bottom: 10px;
+}
+
+.opinion-collection {
+  border: 2px solid azure;
+  width: 500px;
+  margin-top: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 20px;
+  font-size: 20px;
 }
 
 .input-form {
@@ -107,7 +163,8 @@ nav a.router-link-exact-active {
   height: 200px;
 }
 
-.submit-btn {
+.submit-btn,
+.check-btn {
   margin-top: 20px;
   margin-bottom: 30px;
   font-size: 20px;
@@ -115,7 +172,7 @@ nav a.router-link-exact-active {
 </style>
 
 <script>
-import { collection, addDoc } from "firebase/firestore"
+import { doc, collection, addDoc, getDocs, deleteDoc } from "firebase/firestore"
 import { db } from "@/firebase.js"
 
 export default {
@@ -124,6 +181,9 @@ export default {
       height: 0,
       space: {},
       opinion: "",
+      opinionCollection: [], // 皆の意見の集まりそれに属するidを格納する配列
+      masterCode: "", // 意見を閲覧するためのパスワード
+      masterMode: false, // 意見の閲覧権限があるのかを判断する
     }
   },
   methods: {
@@ -133,6 +193,26 @@ export default {
       })
       this.opinion = ""
       alert("ご協力ありがとうございます")
+    },
+    async getOpinion() {
+      if (this.masterCode === "sonoda") {
+        const querySnapshot = await getDocs(collection(db, "opinion"))
+        querySnapshot.forEach((doc) => {
+          this.opinionCollection.push({ id: doc.id, opinion: doc.data() })
+        })
+        this.masterMode = true
+        this.masterCode = ""
+      } else {
+        alert("あなたに閲覧権限はありません")
+      }
+    },
+    async opinionRemove(index) {
+      await deleteDoc(doc(db, "opinion", this.opinionCollection[index].id))
+      this.opinionCollection.splice(index, 1)
+    },
+    masterModeRelease() {
+      this.masterMode = false
+      this.opinionCollection.splice(0)
     },
   },
   mounted: function () {
