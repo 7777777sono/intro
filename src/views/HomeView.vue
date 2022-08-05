@@ -45,6 +45,166 @@
 </template>
 
 <style>
+@media screen and (max-width: 480px) {
+  .name-zone {
+    padding-top: 30px;
+    padding-left: 30px;
+  }
+
+  .age-zone {
+    padding-left: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .detail-zone {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    font-family: "HG正楷書体-PRO";
+  }
+
+  .sub-title {
+    padding-bottom: 20px;
+    font-size: 33px;
+  }
+
+  .factor {
+    color: black;
+    font-size: 23px;
+    text-decoration: none;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 800px) {
+  .name-zone {
+    padding-top: 30px;
+    padding-left: 30px;
+  }
+
+  .age-zone {
+    padding-left: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .detail-zone {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    font-family: "HG正楷書体-PRO";
+  }
+
+  .sub-title {
+    padding-bottom: 20px;
+    font-size: 33px;
+  }
+
+  .factor {
+    color: black;
+    font-size: 23px;
+    text-decoration: none;
+  }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1080px) {
+  .name-zone {
+    padding-top: 30px;
+    padding-left: 30px;
+  }
+
+  .age-zone {
+    padding-left: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .detail-zone {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    font-family: "HG正楷書体-PRO";
+  }
+
+  .sub-title {
+    padding-bottom: 20px;
+    font-size: 33px;
+  }
+
+  .factor {
+    color: black;
+    font-size: 23px;
+    text-decoration: none;
+  }
+}
+
+@media screen and (min-width: 1081px) and (max-width: 1500px) {
+  .name-zone {
+    padding-top: 30px;
+    padding-left: 30px;
+  }
+
+  .age-zone {
+    padding-left: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .detail-zone {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    font-family: "HG正楷書体-PRO";
+  }
+
+  .sub-title {
+    padding-bottom: 20px;
+    font-size: 33px;
+  }
+
+  .factor {
+    color: black;
+    font-size: 23px;
+    text-decoration: none;
+  }
+}
+
+@media screen and (min-width: 1501px) {
+  .name-zone {
+    padding-top: 30px;
+    padding-left: 30px;
+  }
+
+  .age-zone {
+    padding-left: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .detail-zone {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    font-family: "HG正楷書体-PRO";
+  }
+
+  .sub-title {
+    padding-bottom: 20px;
+    font-size: 33px;
+  }
+
+  .factor {
+    color: black;
+    font-size: 23px;
+    text-decoration: none;
+  }
+}
+
 .home {
   background-image: url("C:\prog\vue\portfolio\src\assets\frank-mckenna-OD9EOzfSOh0-unsplash.jpg");
   background-size: cover;
@@ -56,36 +216,6 @@
   justify-content: flex-start;
   align-items: center;
   font-family: "HG正楷書体-PRO";
-}
-
-.name-zone {
-  padding-top: 30px;
-  padding-left: 30px;
-}
-
-.age-zone {
-  padding-left: 30px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.detail-zone {
-  padding-top: 30px;
-  display: flex;
-  justify-content: space-around;
-  font-family: "HG正楷書体-PRO";
-}
-
-.sub-title {
-  padding-bottom: 20px;
-  font-size: 33px;
-}
-
-.factor {
-  color: black;
-  font-size: 23px;
-  text-decoration: none;
 }
 
 .factor:hover {
