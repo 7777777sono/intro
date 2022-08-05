@@ -287,6 +287,10 @@ export default {
           reference: "ワールドトリガー12巻",
         },
         {
+          img: require("@/assets/スクリーンショット-2021-02-20-21.42.23-1025x720.png"),
+          reference: "ワールドトリガー8巻",
+        },
+        {
           img: "https://blogimg.goo.ne.jp/user_image/6d/da/4375040fc5a40054eb69fea787ed1359.jpg?1597877727",
           reference: "ハイキュー！！17巻",
         },
