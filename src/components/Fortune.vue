@@ -9,7 +9,10 @@
         <img v-bind:src="url" class="fate-img" />
       </div>
     </div>
-    <div class="btn-list">
+    <div v-if="clickJudge === false">
+      <h3 class="fortune-attention">※下のボタンのどれかを押してください</h3>
+    </div>
+    <div v-if="clickJudge === false" class="btn-list">
       <button v-on:click="xorResult(0)" class="btn">🧐</button>
       <button v-on:click="xorResult(1)" class="btn">🍇</button>
       <button v-on:click="xorResult(2)" class="btn">🧙</button>
@@ -24,7 +27,8 @@
 
 <style>
 .divination-title,
-.fate {
+.fate,
+.fortune-attention {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,6 +95,7 @@ export default {
       ],
       result: "", // 占い結果を格納する変数
       url: "", // 占い結果に相当する画像を格納する変数
+      clickJudge: false,
     }
   },
   methods: {
@@ -99,6 +104,7 @@ export default {
       // クリックしたボタンの値とその乱数の排他的論理和によって要素数を指定し、占いの結果とする。
       this.url = this.fortuneResult[ramdom ^ divination].url
       this.result = this.fortuneResult[ramdom ^ divination].result
+      this.clickJudge = true
     },
   },
 }
