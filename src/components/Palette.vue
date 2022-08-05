@@ -53,6 +53,10 @@
           v-on:mouseup="drawEnd"
           v-on:mouseout="drawEnd"
           v-on:mousemove="draw"
+          v-on:touchstart="drawStart"
+          v-on:touchmove="draw"
+          v-on:touchend="drawEnd"
+          v-on:touchleave="drawEnd"
         ></canvas>
       </div>
       <div class="tool-area">
@@ -79,18 +83,21 @@
 
 <style>
 @media screen and (max-width: 480px) {
+  .click-please {
+    font-size: 0.5rem;
+  }
 }
 
-@media screen and (min-width: 481px) and (max-width: 800px) {
+@media screen and (min-width: 481px) and (max-width: 1080px) {
+  .click-please {
+    font-size: 0.7rem;
+  }
 }
 
-@media screen and (min-width: 801px) and (max-width: 1080px) {
-}
-
-@media screen and (min-width: 1081px) and (max-width: 1500px) {
-}
-
-@media screen and (min-width: 1501px) {
+@media screen and (min-width: 1081px) {
+  .click-please {
+    font-size: 1rem;
+  }
 }
 
 .palette-title {
@@ -112,6 +119,14 @@
 .palette {
   width: 255px;
   height: 255px;
+}
+
+.red,
+.blue,
+.green,
+.opacity {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .red {
@@ -175,33 +190,15 @@
 }
 
 .color-decision {
-  margin-top: 1%;
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  padding: 0 30px;
-  font-size: 19px;
-  height: 40px;
-  line-height: 40px!;
   background: #24242c;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 5px;
   font-size: 20px;
   color: rgb(6, 241, 131);
   transition: 0.4s;
   border: none;
-  z-index: -1;
-}
-
-.color-decision:before {
-  position: absolute;
-  content: "";
-  left: 0;
-  top: 0;
-  width: 0;
-  height: 0;
-  border: none;
-  border-left: solid 21px white;
-  border-bottom: solid 41px transparent;
-  transition: 0.4s;
+  z-index: 1;
 }
 
 .color-decision:after {
@@ -235,6 +232,8 @@
 }
 
 .draw-title {
+  margin-bottom: 10px;
+  margin-bottom: 20px;
   text-align: center;
   font-weight: bold;
   color: transparent;
@@ -277,7 +276,8 @@
 }
 
 .tool-area {
-  margin-top: 1%;
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -334,11 +334,12 @@
   text-align: center;
   line-height: 0.95em;
   font-weight: bold;
-  margin-top: 1%;
+  margin-top: 10px;
 }
 
 .click-please {
-  font-size: 0.5rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 </style>
 

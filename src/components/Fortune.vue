@@ -26,27 +26,13 @@
 </template>
 
 <style>
-@media screen and (max-width: 480px) {
-}
-
-@media screen and (min-width: 481px) and (max-width: 800px) {
-}
-
-@media screen and (min-width: 801px) and (max-width: 1080px) {
-}
-
-@media screen and (min-width: 1081px) and (max-width: 1500px) {
-}
-
-@media screen and (min-width: 1501px) {
-}
-
 .divination-title,
 .fate,
 .fortune-attention {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   padding-top: 30px;
   font-family: "ＭＳ 明朝";
 }
