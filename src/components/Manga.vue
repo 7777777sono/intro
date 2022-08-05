@@ -46,22 +46,132 @@
 
 <style>
 @media screen and (max-width: 480px) {
+  .manga-zone-title {
+    font-size: 30px;
+  }
+
+  .favorite-manga-zone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .manga-list {
+    padding-top: 10px;
+    font-size: 20px;
+  }
+
+  .manga-image-favorite-zone-title {
+    font-size: 30px;
+    padding: 30px;
+  }
 }
 
 @media screen and (min-width: 481px) and (max-width: 800px) {
+  .manga-zone-title {
+    font-size: 30px;
+  }
+
+  .favorite-manga-zone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .manga-list {
+    padding-top: 10px;
+    font-size: 20px;
+  }
+
+  .manga-image-favorite-zone-title {
+    font-size: 30px;
+    padding: 30px;
+  }
 }
 
 @media screen and (min-width: 801px) and (max-width: 1080px) {
+  .manga-zone-title {
+    font-size: 30px;
+  }
+
+  .favorite-manga-zone {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .manga-list {
+    padding-top: 15px;
+    padding-left: 50px;
+    font-size: 20px;
+    width: fit-content;
+    /* 1列を3つにするための33% */
+    width: 33%;
+  }
+
+  .manga-image-favorite-zone-title {
+    font-size: 30px;
+    padding: 30px;
+  }
 }
 
 @media screen and (min-width: 1081px) and (max-width: 1500px) {
+  .manga-zone-title {
+    font-size: 30px;
+  }
+
+  .favorite-manga-zone {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .manga-list {
+    padding-top: 5px;
+    padding-left: 50px;
+    font-size: 20px;
+    width: fit-content;
+    /* 1列を4つにするための25% */
+    width: 25%;
+  }
+
+  .manga-image-favorite-zone-title {
+    font-size: 30px;
+    padding: 30px;
+  }
 }
 
 @media screen and (min-width: 1501px) {
+  .manga-zone-title {
+    font-size: 40px;
+  }
+
+  .favorite-manga-zone {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .manga-list {
+    padding-top: 5px;
+    padding-left: 50px;
+    font-size: 25px;
+    width: fit-content;
+    /* 1列を4つにするための25% */
+    width: 25%;
+  }
+
+  .manga-image-favorite-zone-title {
+    font-size: 40px;
+    padding: 30px;
+  }
+
+  .slick-reference {
+    padding-top: 7px;
+    font-size: 20px;
+  }
 }
 
 .manga-zone-title {
-  font-size: 30px;
   padding: 30px;
   display: flex;
   justify-content: center;
@@ -75,31 +185,18 @@
   z-index: -1;
 }
 
-.favorite-manga-zone {
-  display: flex;
-  flex-flow: row wrap;
-}
-
 .manga-image-favorite-zone-title {
-  font-size: 30px;
-  padding: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   color: white;
   font-family: "Estrangelo Edessa";
 }
 
 .manga-list {
-  padding-top: 5px;
-  padding-left: 50px;
-  text-decoration: none;
   color: white;
   font-family: "Estrangelo Edessa";
-  font-size: 20px;
-  width: fit-content;
-  /* 1列を4つにするための25% */
-  width: 25%;
 }
 
 .manga-list:hover {
