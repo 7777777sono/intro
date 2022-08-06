@@ -46,6 +46,7 @@
       </div>
       <div id="canvas-area" class="canvas-area">
         <canvas
+          ref="myCanvas"
           id="myCanvas"
           width="255"
           height="255"
@@ -53,10 +54,10 @@
           v-on:mouseup="drawEnd"
           v-on:mouseout="drawEnd"
           v-on:mousemove="draw"
-          v-on:touchstart="drawStart"
-          v-on:touchmove="draw"
-          v-on:touchend="drawEnd"
-          v-on:touchleave="drawEnd"
+          v-on:touchstart="drawTouchStart"
+          v-on:touchmove="drawTouch"
+          v-on:touchend="drawTouchEnd"
+          v-on:touchleave="drawTouchEnd"
         ></canvas>
       </div>
       <div class="tool-area">
@@ -417,6 +418,27 @@ export default {
       this.context.lineTo(x, y)
       this.context.stroke()
     },
+
+    drawTouch: function (event) {
+      let touchObject = event.changedTouches[0]
+      let touchX = touchObject.pageX
+      let touchY = touchObject.pageY
+
+      // 要素の位置を取得
+      let clientRect = this.$refs.myCanvas.getBoundingClientRect()
+      let positionX = clientRect.left + window.pageXOffset
+      let positionY = clientRect.top + window.pageYOffset
+
+      // 要素内におけるタッチ位置を計算
+      let x = touchX - positionX
+      let y = touchY - positionY
+      if (!this.isDraw) {
+        return
+      }
+      this.context.lineTo(x, y)
+      this.context.stroke()
+    },
+
     // 描画開始（mousedown）
     drawStart: function (e) {
       // マウスイベント発火時の、マウスポインタの水平位置のピクセル数値
@@ -430,12 +452,42 @@ export default {
       this.context.stroke()
       this.isDraw = true
     },
+
+    drawTouchStart: function (event) {
+      let touchObject = event.changedTouches[0]
+      let touchX = touchObject.pageX
+      let touchY = touchObject.pageY
+
+      // 要素の位置を取得
+      let clientRect = this.$refs.myCanvas.getBoundingClientRect()
+      let positionX = clientRect.left + window.pageXOffset
+      let positionY = clientRect.top + window.pageYOffset
+
+      // 要素内におけるタッチ位置を計算
+      let x = touchX - positionX
+      let y = touchY - positionY
+
+      // beginPath：新しいpath情報作成が始まる
+      this.context.beginPath()
+      // lineTo：現在の座標と、指定された座標を結ぶ直線を作る
+      this.context.lineTo(x, y)
+      this.context.stroke()
+      this.isDraw = true
+    },
+
     // 描画終了（mouseup, mouseout）
     drawEnd: function () {
       // closePath：現在の座標とpath開始時点を結ぶ直線を作る
       this.context.closePath()
       this.isDraw = false
     },
+
+    drawTouchEnd: function () {
+      // closePath：現在の座標とpath開始時点を結ぶ直線を作る
+      this.context.closePath()
+      this.isDraw = false
+    },
+
     // ペン
     pen: function () {
       // カーソル変更
