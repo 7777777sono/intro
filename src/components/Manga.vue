@@ -38,7 +38,7 @@
         <div class="slick-reference">引用: {{ scene.reference }}より</div>
       </slide>
       <template #addons>
-        <pagination />
+        <pagination v-if="width >= 450" />
       </template>
     </carousel>
   </div>
@@ -351,7 +351,11 @@ export default {
           reference: "ダイヤのA2巻",
         },
       ],
+      width: 0,
     }
+  },
+  mounted: function () {
+    this.width = window.innerWidth
   },
 }
 </script>
