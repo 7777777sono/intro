@@ -157,6 +157,56 @@
   nav a.router-link-exact-active {
     color: #36d0d3;
   }
+
+  .opinion-collection {
+    width: 500px;
+    margin-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 20px;
+  }
+
+  .input-form {
+    margin-top: 30px;
+    width: 50%;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .opinion-collection {
+    border: 2px solid azure;
+    width: 300px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+
+  .input-form {
+    margin-top: 5px;
+    width: 70%;
+    height: 250px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 800px) {
+  .opinion-collection {
+    border: 2px solid azure;
+    width: 350px;
+    margin-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  .input-form {
+    margin-top: 30px;
+    width: 65%;
+    height: 230px;
+  }
 }
 
 .header {
@@ -227,18 +277,7 @@
 
 .opinion-collection {
   border: 2px solid azure;
-  width: 500px;
-  margin-top: 20px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-bottom: 20px;
   font-size: 20px;
-}
-
-.input-form {
-  margin-top: 30px;
-  width: 50%;
-  height: 200px;
 }
 
 .submit-btn,
