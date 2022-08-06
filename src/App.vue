@@ -250,6 +250,12 @@
 </style>
 
 <script>
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth"
 import { doc, collection, addDoc, getDocs, deleteDoc } from "firebase/firestore"
 import { db } from "@/firebase.js"
 
@@ -264,6 +270,12 @@ export default {
       opinionCollection: [], // 皆の意見の集まりそれに属するidを格納する配列
       masterCode: "", // 意見を閲覧するためのパスワード
       masterMode: false, // 意見の閲覧権限があるのかを判断する
+      userLogin: false,
+      userData: null, //登録したユーザー情報を格納する変数
+      userGetId: "",
+      userGetName: "",
+      userGetMail: "",
+      myUid: "bwnMzGAyrxbEPr97iOVYPumSsVB3",
     }
   },
   methods: {
@@ -276,11 +288,34 @@ export default {
     },
     async getOpinion() {
       if (this.masterCode === "sonoda") {
-        const querySnapshot = await getDocs(collection(db, "opinion"))
-        querySnapshot.forEach((doc) => {
-          this.opinionCollection.push({ id: doc.id, opinion: doc.data() })
-        })
-        this.masterMode = true
+        const provider = new GoogleAuthProvider()
+        const auth = getAuth()
+        await signInWithPopup(auth, provider)
+          .then((result) => {
+            const credential = GoogleAuthProvider.credentialFromResult(result)
+            credential.accessToken
+            result.user
+            this.userGetId = result.user.uid
+            this.userGetName = result.user.displayName
+            this.userGetMail = result.user.email
+          })
+          .catch((error) => {
+            error.code
+            error.message
+            error.email
+            GoogleAuthProvider.credentialFromError(error)
+          })
+        if (this.myUid === this.userGetId) {
+          this.userLogin = true
+          const querySnapshot = await getDocs(collection(db, "opinion"))
+          querySnapshot.forEach((doc) => {
+            this.opinionCollection.push({ id: doc.id, opinion: doc.data() })
+          })
+          this.masterMode = true
+        } else {
+          this.masterModeRelease()
+          alert("あなたに閲覧権限はありません")
+        }
         this.masterCode = ""
       } else {
         alert("あなたに閲覧権限はありません")
@@ -293,6 +328,19 @@ export default {
     masterModeRelease() {
       this.masterMode = false
       this.opinionCollection.splice(0)
+      const auth = getAuth()
+      signOut(auth)
+        .then(() => {
+          // Sign-out successful.
+          this.userGetId = ""
+          this.userGetName = ""
+          this.userGetMail = ""
+          this.userLogin = false
+        })
+        .catch((error) => {
+          // An error happened.
+          console.error(error)
+        })
     },
   },
   mounted: function () {
@@ -300,6 +348,11 @@ export default {
     const header = this.$refs.header
     this.height = header.clientHeight // ヘッダの高さを得る。
     this.space["padding-top"] = this.height + "px" // ヘッダ分の高さを空ける
+  },
+  beforeUnmount: function () {
+    if (this.userLogin) {
+      this.masterModeRelease()
+    }
   },
 }
 </script>
