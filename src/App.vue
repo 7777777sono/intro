@@ -90,6 +90,9 @@
 </template>
 
 <style>
+@import url("https://fonts.googleapis.com/css2? family= Noto+Serif+JP:wght@200 & display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&family=Playfair+Display:ital,wght@1,600&display=swap");
+
 @media screen and (max-width: 800px) {
   .menu-btn {
     position: fixed;
@@ -110,8 +113,11 @@
     top: 0;
     right: 0;
     z-index: 1;
-    width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    min-width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -131,7 +137,8 @@
     color: #fff;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: "Monotype Corsiva";
+    font-family: "Noto Serif JP", serif;
+    font-family: "Playfair Display", serif;
   }
 
   .menu {
@@ -151,7 +158,8 @@
     font-size: 20px;
     padding-right: 15px;
     text-decoration: none;
-    font-family: "Monotype Corsiva";
+    font-family: "Noto Serif JP", serif;
+    font-family: "Playfair Display", serif;
   }
 
   nav a.router-link-exact-active {
@@ -228,7 +236,8 @@
 .title {
   color: white;
   padding: 10px;
-  font-family: "Monotype Corsiva";
+  font-family: "Noto Serif JP", serif;
+  font-family: "Playfair Display", serif;
 }
 
 .opinion-zone {
@@ -255,7 +264,7 @@
 .user-mode-zone-title,
 .check-btn,
 .remove-btn {
-  font-family: "HG行書体";
+  font-family: "Noto Serif JP", serif;
 }
 
 .opinion-title,

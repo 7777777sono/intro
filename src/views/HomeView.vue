@@ -45,6 +45,9 @@
 </template>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@200&family=Noto+Serif+JP:wght@300&family=Playfair+Display:ital,wght@1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@200&family=Noto+Serif+JP:wght@200;300&family=Playfair+Display:ital,wght@1,600&family=Shippori+Mincho&display=swap");
+
 @media screen and (max-width: 480px) {
   .my-zone {
     display: flex;
@@ -75,7 +78,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-family: "HG正楷書体-PRO";
   }
 
   .sub-title {
@@ -120,7 +122,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-family: "HG正楷書体-PRO";
   }
 
   .sub-title {
@@ -164,7 +165,6 @@
     padding-top: 30px;
     display: flex;
     justify-content: space-around;
-    font-family: "HG正楷書体-PRO";
   }
 
   .sub-title {
@@ -207,7 +207,6 @@
     padding-top: 30px;
     display: flex;
     justify-content: space-around;
-    font-family: "HG正楷書体-PRO";
   }
 
   .sub-title {
@@ -227,8 +226,18 @@
   min-height: 100vh;
 }
 
-.my-zone {
-  font-family: "HG正楷書体-PRO";
+.my-zone,
+.sub-title {
+  font-family: "Noto Serif HK", serif;
+  font-family: "Noto Serif JP", serif;
+  font-family: "Playfair Display", serif;
+}
+
+.factor {
+  font-family: "Noto Serif HK", serif;
+  font-family: "Noto Serif JP", serif;
+  font-family: "Playfair Display", serif;
+  font-family: "Shippori Mincho", serif;
 }
 
 .factor:hover {

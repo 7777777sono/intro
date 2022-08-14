@@ -45,6 +45,8 @@
 </template>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@200&family=Noto+Serif+JP:wght@200;300&family=Playfair+Display:ital,wght@1,600&family=Shippori+Mincho&display=swap");
+
 @media screen and (max-width: 480px) {
   .manga-zone-title {
     font-size: 30px;
@@ -171,13 +173,21 @@
   }
 }
 
+.manga-zone-title,
+.manga-image-favorite-zone-title,
+.manga-list {
+  font-family: "Noto Serif HK", serif;
+  font-family: "Noto Serif JP", serif;
+  font-family: "Playfair Display", serif;
+  font-family: "Shippori Mincho", serif;
+}
+
 .manga-zone-title {
   padding: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  font-family: "Estrangelo Edessa";
 }
 
 .manga-image-favorite-zone {
@@ -191,12 +201,10 @@
   align-items: center;
   text-align: center;
   color: white;
-  font-family: "Estrangelo Edessa";
 }
 
 .manga-list {
   color: white;
-  font-family: "Estrangelo Edessa";
 }
 
 .manga-list:hover {

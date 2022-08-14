@@ -26,6 +26,8 @@
 </template>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@200&family=Noto+Serif+JP:wght@200;300&family=Playfair+Display:ital,wght@1,600&family=Shippori+Mincho&display=swap");
+
 .divination-title,
 .fate,
 .fortune-attention {
@@ -34,7 +36,10 @@
   align-items: center;
   text-align: center;
   padding-top: 30px;
-  font-family: "ＭＳ 明朝";
+  font-family: "Noto Serif HK", serif;
+  font-family: "Noto Serif JP", serif;
+  font-family: "Playfair Display", serif;
+  font-family: "Shippori Mincho", serif;
 }
 
 .fate-img-zone,
