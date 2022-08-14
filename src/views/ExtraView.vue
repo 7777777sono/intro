@@ -9,27 +9,17 @@
 </template>
 
 <style>
-@media screen and (max-width: 480px) {
-}
-
-@media screen and (min-width: 481px) and (max-width: 800px) {
-}
-
-@media screen and (min-width: 801px) and (max-width: 1080px) {
-}
-
-@media screen and (min-width: 1081px) and (max-width: 1500px) {
-}
-
-@media screen and (min-width: 1501px) {
-}
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@200&family=Noto+Serif+JP:wght@200;300&family=Playfair+Display:ital,wght@1,600&family=Shippori+Mincho&display=swap");
 
 .extra-title {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 30px;
-  font-family: "ＭＳ 明朝";
+  font-family: "Noto Serif HK", serif;
+  font-family: "Noto Serif JP", serif;
+  font-family: "Playfair Display", serif;
+  font-family: "Shippori Mincho", serif;
 }
 </style>
 
