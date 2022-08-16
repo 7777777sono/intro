@@ -15,6 +15,37 @@
     </div>
     <div class="deliverables-zone">
       <h1 class="deliverables-title">これまでの成果物</h1>
+      <table class="create-table" align="center" valign="middle">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Language</th>
+            <th>Title</th>
+            <th>URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="(create, index) in createLists"
+            v-bind:key="index"
+            v-bind:value="create"
+          >
+            <th>{{ index }}</th>
+            <th>{{ create.language }}</th>
+            <th>{{ create.title }}</th>
+            <th>
+              <a
+                v-bind:href="create.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="create-table-url"
+              >
+                {{ create.url }}
+              </a>
+            </th>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -25,6 +56,22 @@
 
 @media screen and (max-width: 480px) {
   .language-item {
+    font-size: 20px;
+  }
+
+  .create-table {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 800px) {
+  .create-table {
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 801px) {
+  .create-table {
     font-size: 20px;
   }
 }
@@ -44,7 +91,7 @@
 }
 
 .create-zone {
-  background-image: url("C:\prog\Vue\portfolio\src\assets\pexels-denis-linine-714256.jpg");
+  background-image: url("C:\prog\Vue\portfolio\src\assets\henrique-setim-XuD9vHw6yeY-unsplash.jpg");
   background-size: cover;
   min-height: 100vh;
 }
@@ -79,6 +126,32 @@
   justify-content: center;
   align-items: center;
 }
+
+.create-table {
+  width: 80%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.create-table * {
+  border: 1px #000 solid;
+}
+
+.create-table-url {
+  color: black;
+  word-break: break-all;
+  border: none;
+}
+
+.create-table-url:hover {
+  color: crimson;
+}
+
+tr {
+  border: 1px;
+  text-align: center;
+  vertical-align: middle;
+}
 </style>
 
 <script>
@@ -86,6 +159,13 @@ export default {
   data() {
     return {
       languages: ["C", "C++", "C#", "Java", "JavaScript", "Python"],
+      createLists: [
+        {
+          language: "Python",
+          title: "Web上で行うソケット間通信",
+          url: "https://7777777sono.github.io/socket/",
+        },
+      ], // 成果物の情報を格納するオブジェクトの配列
     }
   },
 }
