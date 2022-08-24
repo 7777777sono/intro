@@ -165,6 +165,11 @@ export default {
           title: "Web上で行うソケット間通信",
           url: "https://7777777sono.github.io/socket/",
         },
+        {
+          language: "Java",
+          title: "テトリス",
+          url: "https://7777777sono.github.io/tetris/",
+        },
       ], // 成果物の情報を格納するオブジェクトの配列
     }
   },
