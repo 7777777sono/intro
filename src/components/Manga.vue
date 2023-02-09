@@ -208,7 +208,7 @@
 }
 
 .manga-list:hover {
-  color: #e64d0b;
+  color: #36d0d3;
 }
 
 .slide-zone {

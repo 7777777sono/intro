@@ -144,7 +144,7 @@
 }
 
 .create-table-url:hover {
-  color: crimson;
+  color: blue;
 }
 
 tr {
@@ -169,6 +169,11 @@ export default {
           language: "Java",
           title: "テトリス",
           url: "https://7777777sono.github.io/tetris/",
+        },
+        {
+          language: "TypeScript",
+          title: "Web上で行うソケット間通信",
+          url: "https://competition-programming.web.app/",
         },
       ], // 成果物の情報を格納するオブジェクトの配列
     }
