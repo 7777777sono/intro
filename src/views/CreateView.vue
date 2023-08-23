@@ -120,6 +120,10 @@
   font-family: "Shippori Mincho", serif;
 }
 
+.deliverables-zone {
+  padding-bottom: 30px;
+}
+
 .deliverables-title {
   padding-top: 30px;
   display: flex;
@@ -158,7 +162,16 @@ tr {
 export default {
   data() {
     return {
-      languages: ["C", "C++", "C#", "Java", "JavaScript", "Python"],
+      languages: [
+        "C",
+        "C++",
+        "C#",
+        "Java",
+        "Python",
+        "JavaScript",
+        "TypeScript",
+        "Ruby",
+      ],
       createLists: [
         {
           language: "Python",
@@ -172,7 +185,12 @@ export default {
         },
         {
           language: "TypeScript",
-          title: "Web上で行うソケット間通信",
+          title: "競プロトレーニング",
+          url: "https://competition-programming.web.app/",
+        },
+        {
+          language: "TypeScript, Ruby",
+          title: "Task Tracker",
           url: "https://competition-programming.web.app/",
         },
       ], // 成果物の情報を格納するオブジェクトの配列
